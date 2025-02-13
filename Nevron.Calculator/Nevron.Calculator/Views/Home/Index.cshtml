@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="calculator-main">
+    <h2>Header</h2>
+    <h3>Subheader</h3>
+    <button id="clearButton" class="btn btn-light">Clear Numbers</button>
+    <button id="addButton" class="btn btn-light">Add Numbers</button>
+    <button id="sumButton" class="btn btn-light">Sum Numbers</button>
+
+    <div id="numbers" class="calculator-display">
+        @{var numbers = ViewData["Numbers"] as List<int>;}
+        @if (numbers != null)
+        {
+            foreach (var number in numbers)
+            {
+                <span class="displayed-number">@number</span>
+            }   
+        }
+    </div>
+
+    <p><b>Count</b>: <span id="count">@ViewData["Count"]</span></p>
+    <p><b>Sum</b>: <span id="sum">@ViewData["Sum"]</span></p>
+</div>
